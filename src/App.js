@@ -1,11 +1,14 @@
 import './App.css';
-import firebase from './api/firebase'
-import AddPicture from './pages/addPicture/AddPicture.Pages';
+import firebase from './api/firebase';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './controller/routes';
 
 function App() {
   return (
     <div className="App">
-      <AddPicture />
+      <Router>
+        <Routes />
+      </Router>
     </div>
   );
 }

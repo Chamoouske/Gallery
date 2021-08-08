@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Picture } from './ListPictures.Style';
 
-function ListPictures() {
-    return (
-        <div>
-            <h1>Listar Fotos</h1>
-        </div>
-    )
+function ListPictures({ author, url, title }) {
+  return (
+    <div>
+      <h2>{author}</h2>
+      <h4>{title}</h4>
+      <Picture src={url} alt={title} />
+    </div>
+  );
 }
 
-export default ListPictures
+export default ListPictures;

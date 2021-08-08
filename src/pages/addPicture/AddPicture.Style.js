@@ -59,4 +59,26 @@ export const ButtonAdd = styled.button`
   padding: 1.2rem;
   cursor: pointer;
   border-radius: 5px;
+  margin:0.5rem;
+`;
+
+export const ButtonReturn = styled.button`
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  border: none;
+  outline: none;
+  font-size: 1.35rem;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  background-color: #aaa550;
+  color: white;
+  padding: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin:0.5rem;
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

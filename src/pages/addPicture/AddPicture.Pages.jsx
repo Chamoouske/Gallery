@@ -8,45 +8,55 @@ import {
   ButtonAdd,
   BackgroundAdd,
   AddTitle,
+  Buttons,
+  ButtonReturn,
 } from './AddPicture.Style.js';
 
 function AddPicture() {
   const [imag, setImage] = useState({});
-  
+
   const setValues = {
-    src: (link) => setImage({ ...imag, url: link }),
+    url: (link) => setImage({ ...imag, url: link }),
     title: (title) => setImage({ ...imag, title: title }),
-    author: (author) => setImage({ ...imag, author }),
+    author: (author) => setImage({ ...imag, author: author }),
   };
 
-  function addImage() {
-    newImage(...imag);
+  function redirectNavigation(link, node) {
+    window.location.href = link;
+  }
+
+  function addImage({ author, url, title }) {
+    newImage({ author, url, title });
   }
   return (
     <AddPage>
-      {console.log(imag)}
       <BackgroundAdd>
         <FormAdd>
           <AddTitle>Registrar Imagem</AddTitle>
           <InputFieldAdd
             value={imag?.url}
             placeholder="Url da Imagem"
-            onChange={e=>setValues.src(e.target.value)}
+            onChange={(e) => setValues.url(e.target.value)}
             required
           ></InputFieldAdd>
           <InputFieldAdd
             value={imag?.title}
-            onChange={e=>setValues.title(e.target.value)}
+            onChange={(e) => setValues.title(e.target.value)}
             placeholder="Título da Imagem"
             required
           ></InputFieldAdd>
           <InputFieldAdd
             value={imag?.author}
-            onChange={e=>setValues.author(e.target.value)}
+            onChange={(e) => setValues.author(e.target.value)}
             placeholder="Autor da Imagem"
             required
           ></InputFieldAdd>
-          <ButtonAdd onClick={(e) => addImage(e.value)}>Adicionar</ButtonAdd>
+          <Buttons>
+            <ButtonReturn onClick={redirectNavigation.bind(this, '/')}>
+              Voltar
+            </ButtonReturn>
+            <ButtonAdd onClick={() => addImage(imag)}>Adicionar</ButtonAdd>
+          </Buttons>
         </FormAdd>
       </BackgroundAdd>
     </AddPage>

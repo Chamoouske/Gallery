@@ -8,7 +8,7 @@ export const newImage = (props) => {
     title: props.title,
     createdat: firebase.database.ServerValue.TIMESTAMP,
   };
-
+  console.log(imageData)
   let iamgeRef = firebase.database().ref('imgs/' + imageData.author);
 
   try {
@@ -27,10 +27,12 @@ export class searchImage {
     let query = firebase.database().ref(nodePath);
     query.on('value', (dataSnapshot) => {
       let items = [];
+      console.log('1')
       dataSnapshot.forEach((childSnapshot) => {
         let item = childSnapshot.val();
         item['key'] = childSnapshot.key;
         items.push(item);
+        console.log(items)
       });
       callback(items);
     });
