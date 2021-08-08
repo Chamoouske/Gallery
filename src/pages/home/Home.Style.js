@@ -18,6 +18,7 @@ export const Result = styled.div`
   display: grid;
   grid-template-areas:
     'button'
+    'boxselect'
     'content';
   justify-items: center;
 `;
@@ -39,4 +40,15 @@ export const AddImage = styled.button`
   cursor: pointer;
   border-radius: 5px;
   grid-area: button;
+`;
+
+export const BoxSelect = styled.select`
+  margin: 0.5rem;
+  font-size: 1.35rem;
+  grid-area: boxselect;
+`;
+
+export const Options = styled.option`
+justify-content: center;
+font-size: 1rem;
 `;

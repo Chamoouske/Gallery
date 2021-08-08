@@ -1,5 +1,5 @@
 import './App.css';
-import firebase from './api/firebase';
+import './api/firebase';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './controller/routes';
 

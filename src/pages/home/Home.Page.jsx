@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { searchImage } from '../../api/api';
 import ListPictures from '../../components/listPictures/ListPictures.Component';
-import {
-  AddImage,
-  BoxPicture,
-  HomePage,
-  Result,
-} from './Home.Style';
-
+import { AddImage, BoxPicture, BoxSelect, HomePage, Result } from './Home.Style';
 class Home extends Component {
   state = {
     pictures: [],
+    author: 'none'
   };
   async componentDidMount() {
     searchImage.getDataList('imgs', (dataReceived) => {
@@ -21,8 +16,12 @@ class Home extends Component {
     window.location.href = link;
   }
 
+  handleChange(value) {
+    this.setState({ author: value })
+  }
+
   render() {
-    const { pictures } = this.state;
+    const { pictures, author } = this.state;
     return (
       <HomePage>
         <Result>
@@ -30,15 +29,26 @@ class Home extends Component {
             Adicionar Imagem
           </AddImage>
 
+          <BoxSelect onChange={e => this.handleChange(e.target.value)}>
+            <option value='none'>Selecione um autor</option>
+            {pictures.map(picture => {
+              return (
+                <option value={picture.author}>{picture.author}</option>
+              );
+            })}
+          </BoxSelect>
+
           <BoxPicture>
             {pictures.map((picture) => {
-              return (
-                <ListPictures
-                  author={picture.author}
-                  url={decodeURIComponent(picture.url).replaceAll('%2E', '.')}
-                  title={picture.title}
-                />
-              );
+              if (picture.author === author || author === 'none') {
+                return (
+                  <ListPictures
+                    author={picture.author}
+                    url={decodeURIComponent(picture.url).replaceAll('%2E', '.')}
+                    title={picture.title}
+                  />
+                );
+              }
             })}
           </BoxPicture>
         </Result>
