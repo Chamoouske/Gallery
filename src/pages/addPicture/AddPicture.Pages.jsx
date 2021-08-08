@@ -16,7 +16,7 @@ function AddPicture() {
   const [imag, setImage] = useState({});
 
   const setValues = {
-    url: (link) => setImage({ ...imag, url: link }),
+    picture: (link) => setImage({ ...imag, picture: link }),
     title: (title) => setImage({ ...imag, title: title }),
     author: (author) => setImage({ ...imag, author: author }),
   };
@@ -25,18 +25,18 @@ function AddPicture() {
     window.location.href = link;
   }
 
-  function addImage({ author, url, title }) {
-    newImage({ author, url, title });
+  function addImage({ author, picture, title }) {
+    newImage({ author, picture, title });
   }
   return (
     <AddPage>
       <BackgroundAdd>
         <FormAdd>
-          <AddTitle>Registrar Imagem</AddTitle>
+          <AddTitle>Adicionar Imagem</AddTitle>
           <InputFieldAdd
-            value={imag?.url}
-            placeholder="Url da Imagem"
-            onChange={(e) => setValues.url(e.target.value)}
+            value={imag?.picture}
+            placeholder="URL da Imagem"
+            onChange={(e) => setValues.picture(e.target.value)}
             required
           ></InputFieldAdd>
           <InputFieldAdd

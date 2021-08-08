@@ -22,6 +22,7 @@ class Home extends Component {
 
   render() {
     const { pictures, author } = this.state;
+    console.log(pictures)
     return (
       <HomePage>
         <Result>
@@ -44,7 +45,7 @@ class Home extends Component {
                 return (
                   <ListPictures
                     author={picture.author}
-                    url={decodeURIComponent(picture.url).replaceAll('%2E', '.')}
+                    picture={decodeURIComponent(picture.url).replaceAll('%2E', '.')}
                     title={picture.title}
                   />
                 );
