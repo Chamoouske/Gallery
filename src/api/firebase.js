@@ -1,14 +1,14 @@
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBqPHVURzqNuaoVPWSnPydZ0S9b1eLzH4k',
-  authDomain: 'gallery-2eb2f.firebaseapp.com',
-  databaseURL: 'https://gallery-2eb2f-default-rtdb.firebaseio.com',
-  projectId: 'gallery-2eb2f',
-  storageBucket: 'gallery-2eb2f.appspot.com',
-  messagingSenderId: '129188004867',
-  appId: '1:129188004867:web:309ee45943410c555f3a36',
-  measurementId: 'G-HBGDG2HKWV',
+  apiKey: `${process.env.REACT_APP_APIKEY}`,
+  authDomain: `${process.env.REACT_APP_DOMAIN}`,
+  databaseURL: `https://gallery-2eb2f-default-rtdb.firebaseio.com`,
+  projectId: `${process.env.REACT_APP_PRJID}`,
+  storageBucket: `${process.env.REACT_APP_SB}`,
+  messagingSenderId: `${process.env.REACT_APP_MSID}`,
+  appId: `${process.env.REACT_APP_APPID}`,
+  measurementId: `${process.env.REACT_APP_MID}`,
 };
 firebase.initializeApp(firebaseConfig);
 
